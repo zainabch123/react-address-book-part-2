@@ -43,18 +43,18 @@ code {
   border-bottom: 2px solid darkgray;
 }
 
-.new-contact-form {
+.new-contact-form, .update-contact-form {
   display: grid;
   gap: 8px;
   font-weight: bold;
 }
 
-.new-contact-form input {
+.new-contact-form input, .update-contact-form input {
   height: 20px;
   font-size: 15px;
 }
 
-.new-contact-form button {
+.new-contact-form button, .update-contact-form button {
   margin-top: 10px;
   width: 100px;
 }

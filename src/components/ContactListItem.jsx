@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 
 export default function ContactListItem({contact}) {
-    console.log("contact id", contact.id)
     return (
       <li>
           <p>

@@ -4,17 +4,11 @@ import { Route, Routes, Link } from "react-router-dom";
 import ContactList from "./components/ContactList";
 import ContactDetails from "./components/ContactDetails";
 import AddNewContact from "./components/AddNewContact";
+import UpdateContact from "./components/UpdateContact";
 
 function App() {
   const [allContacts, setAllContacts] = useState([]);
-
-  useEffect(() => {
-    fetch("https://boolean-uk-api-server.fly.dev/zainabch123/contact")
-      .then((res) => res.json())
-      .then((data) => setAllContacts(data));
-  }, []);
-
-  console.log("all contact", allContacts);
+  const [selectedContact, setSelectedContact] = useState(null);
 
   return (
     <>
@@ -41,7 +35,14 @@ function App() {
         />
         <Route
           path="/view/:id"
-          element={<ContactDetails allContacts={allContacts} />}
+          element={
+            <ContactDetails
+              allContacts={allContacts}
+              setAllContacts={setAllContacts}
+              selectedContact={selectedContact}
+              setSelectedContact={setSelectedContact}
+            />
+          }
         />
         <Route
           path="/add-new-contact"
@@ -49,6 +50,16 @@ function App() {
             <AddNewContact
               allContacts={allContacts}
               setAllContacts={setAllContacts}
+            />
+          }
+        />
+        <Route
+          path="/update/:id"
+          element={
+            <UpdateContact
+              allContacts={allContacts}
+              selectedContact={selectedContact}
+              setSelectedContact={setSelectedContact}
             />
           }
         />
